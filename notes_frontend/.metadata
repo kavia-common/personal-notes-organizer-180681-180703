@@ -1,11 +1,10 @@
 # This file tracks properties of this Flutter project.
-# It can help tools and CI runners recognize the Flutter project root.
+# Used by Flutter tools to determine project root and platform configurations.
 
 version:
-  revision: unknown
-  channel: stable
+  revision: "stable"
+  channel: "stable"
 
 project_type: app
 
-# Files and directories created by Flutter tools will be stored in this location.
-# This ensures commands like `flutter analyze` and `flutter test` can detect the root.
+# This file intentionally minimal; it helps some CI analyzers detect Flutter project root.

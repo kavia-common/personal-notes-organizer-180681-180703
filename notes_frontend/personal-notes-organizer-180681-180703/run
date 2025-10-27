@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Generic CI entrypoint: delegate to the Flutter app directory and run checks.
+set -euo pipefail
+
+APP_DIR="personal-notes-organizer-180681-180703/notes_frontend"
+
+if [ ! -f "$APP_DIR/pubspec.yaml" ] || [ ! -f "$APP_DIR/lib/main.dart" ]; then
+  echo "run: Flutter app not found at $APP_DIR"
+  exit 1
+fi
+
+echo "run: switching to $APP_DIR"
+cd "$APP_DIR"
+
+echo "run: flutter pub get"
+flutter pub get
+
+echo "run: flutter analyze"
+flutter analyze
+
+echo "run: flutter test"
+flutter test
+
+echo "run: done"

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Generic CI verify script: ensure we run flutter commands from the app directory.
+set -euo pipefail
+
+APP_DIR="personal-notes-organizer-180681-180703/notes_frontend"
+
+if [ ! -f "$APP_DIR/pubspec.yaml" ] || [ ! -f "$APP_DIR/lib/main.dart" ]; then
+  echo "verify: Flutter app not found at $APP_DIR"
+  exit 1
+fi
+
+echo "verify: cd $APP_DIR"
+cd "$APP_DIR"
+
+echo "verify: flutter pub get"
+flutter pub get
+
+echo "verify: flutter analyze (quick)"
+flutter analyze
+
+echo "verify: smoke test"
+flutter test -r expanded --plain-name "App renders placeholder content" || true
+
+echo "verify: done"

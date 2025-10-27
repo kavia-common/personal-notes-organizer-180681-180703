@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# CI alias script (no extension) for environments that invoke ./ci by convention.
+set -euo pipefail
+
+if [ ! -f "pubspec.yaml" ] || [ ! -f "lib/main.dart" ]; then
+  echo "This script must be run from personal-notes-organizer-180681-180703/notes_frontend"
+  exit 2
+fi
+
+flutter pub get
+flutter analyze
+flutter test

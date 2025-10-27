@@ -1,0 +1,6 @@
+# Minimal flutter project metadata (non-mandatory) to help CI tools detect Flutter context.
+# The actual configuration is in pubspec.yaml. This file documents asset/glob intentions.
+flutter:
+  assets:
+    - assets/
+  uses-material-design: true

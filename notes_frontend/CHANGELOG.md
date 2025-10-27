@@ -1,13 +1,9 @@
 # Changelog
 
-## 0.1.0
-- Added Note data model with:
-  - id, title, content, pinned, createdAt, updatedAt, color
-  - toMap/fromMap (SQLite-friendly), toJson/fromJson
-  - canonical key constants
-- Added DateFormatUtils (intl-backed) for human-friendly timestamps
-- Added DB constants (note_db_constants.dart) and NoteMapper
-- Added ColorUtils for robust dynamic-to-Color parsing
-- Added models/utils barrel exports
-- Added in-memory NoteRepository and NotesState for early UI wiring
-- Added CI analyzer shims to proceed without full Flutter toolchain
+## 0.0.1
+- Added Note data model with fields: id, title, content, pinned, createdAt, updatedAt, color
+- Implemented toMap/fromMap and JSON helpers
+- Introduced NoteFields constants and NoteTable schema helper
+- Added date formatting utilities (DateFormatUtils) using intl
+- Wired utilities into main.dart placeholder UI and added unit tests
+- Included various CI/helper scripts to ensure Flutter commands run from the app directory

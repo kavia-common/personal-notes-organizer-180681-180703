@@ -1,0 +1,14 @@
+# This is a lightweight pubspec at the workspace root to help CI/analyzers
+# that mistakenly start at the repository root. It is not the actual app.
+# The real Flutter app lives at notes_frontend/.
+# Tools should cd into personal-notes-organizer-180681-180703/notes_frontend and use its pubspec.yaml.
+
+name: workspace_root_placeholder
+description: Placeholder to guide CI to the real Flutter app path.
+publish_to: 'none'
+environment:
+  sdk: '>=3.7.0 <4.0.0'
+
+# No dependencies here; refer to notes_frontend/pubspec.yaml
+# This file prevents "Could not determine project root directory" failures when
+# scanners look for a pubspec at the current directory.

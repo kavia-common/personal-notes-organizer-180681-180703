@@ -1,0 +1,9 @@
+# Root-level analysis options (no-op). Real analysis happens in notes_frontend/analysis_options.yaml.
+# This file exists to stop analyzer tools from erroring when started from repo root.
+analyzer:
+  exclude:
+    - "notes_frontend/**/.dart_tool/**"
+    - "notes_frontend/build/**"
+linter:
+  rules:
+    # No rules here; refer to app's analysis_options.yaml

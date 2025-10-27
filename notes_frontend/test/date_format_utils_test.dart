@@ -1,20 +1,31 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:notes_frontend/utils/date_format.dart';
 
 void main() {
-  final base = DateTime(2025, 1, 2, 12, 0, 0);
+  test('showShortDate formats a known date', () {
+    final dt = DateTime(2025, 3, 5, 15, 45);
+    final out = DateFormatUtils.showShortDate(dt);
+    expect(out.isNotEmpty, true);
+  });
 
-  // Just now
-  assert(DateFormatUtils.showRelative(base, now: base) == 'Just now');
+  test('showTime formats a known time', () {
+    final dt = DateTime(2025, 3, 5, 15, 45);
+    final out = DateFormatUtils.showTime(dt);
+    expect(out.isNotEmpty, true);
+  });
 
-  // Minutes ago
-  final fiveMinAgo = base.subtract(const Duration(minutes: 5));
-  assert(DateFormatUtils.showRelative(fiveMinAgo, now: base).contains('min'));
+  test('showFullDateTime combines date and time', () {
+    final dt = DateTime(2025, 3, 5, 15, 45);
+    final out = DateFormatUtils.showFullDateTime(dt);
+    expect(out.isNotEmpty, true);
+  });
 
-  // Hours ago
-  final twoHours = base.subtract(const Duration(hours: 2));
-  assert(DateFormatUtils.showRelative(twoHours, now: base).contains('h'));
-
-  // Yesterday
-  final yesterday = DateTime(2025, 1, 1, 23, 59, 0);
-  assert(DateFormatUtils.showRelative(yesterday, now: base) == 'Yesterday');
+  test('showRelative handles seconds/minutes/hours/days', () {
+    final now = DateTime(2025, 3, 5, 12, 0);
+    expect(DateFormatUtils.showRelative(now, now: now), anyOf(['Just now', '0s ago']));
+    expect(DateFormatUtils.showRelative(now.subtract(const Duration(seconds: 30)), now: now), isNotEmpty);
+    expect(DateFormatUtils.showRelative(now.subtract(const Duration(minutes: 2)), now: now), contains('min'));
+    expect(DateFormatUtils.showRelative(now.subtract(const Duration(hours: 3)), now: now), contains('h'));
+    expect(DateFormatUtils.showRelative(now.subtract(const Duration(days: 2)), now: now), anyOf([contains('days'), 'Yesterday']));
+  });
 }

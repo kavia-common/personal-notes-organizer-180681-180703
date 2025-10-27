@@ -1,18 +1,15 @@
 #!/usr/bin/env bash
+# Repository-root analyzer entrypoint for CI environments.
+# Ensures Flutter analysis runs from the correct app directory.
 set -euo pipefail
 
-APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/notes_frontend"
+APP_DIR="personal-notes-organizer-180681-180703/notes_frontend"
 
-if [ ! -f "$APP_DIR/pubspec.yaml" ]; then
-  echo "[analyze.sh] ERROR: Could not find Flutter project at $APP_DIR"
-  exit 1
-fi
-
-echo "[analyze.sh] Switching to: $APP_DIR"
+echo "analyze.sh: cd to $APP_DIR"
 cd "$APP_DIR"
 
-echo "[analyze.sh] flutter pub get"
+echo "analyze.sh: flutter pub get"
 flutter pub get
 
-echo "[analyze.sh] flutter analyze"
+echo "analyze.sh: flutter analyze"
 flutter analyze

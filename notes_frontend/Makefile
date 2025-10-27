@@ -1,17 +1,14 @@
-.PHONY: bootstrap analyze test format lint ci
+# Make targets for running Flutter steps from the app directory.
 
-bootstrap:
-\tflutter pub get
+.PHONY: pub_get analyze test all
+
+pub_get:
+	@flutter pub get
 
 analyze:
-\tflutter analyze
+	@flutter analyze
 
 test:
-\tCI=true flutter test --no-pub
+	@flutter test
 
-format:
-\tdart format -l 100 .
-
-lint: analyze
-
-ci: bootstrap analyze test
+all: pub_get analyze test

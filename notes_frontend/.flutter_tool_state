@@ -1,0 +1,4 @@
+# This file is a lightweight marker for CI/analyzers to detect a Flutter project root.
+# The real configuration remains in pubspec.yaml; this marker helps tools that scan for Flutter metadata.
+project_type=app
+channel=stable

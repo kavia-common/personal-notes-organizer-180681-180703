@@ -1,0 +1,11 @@
+{
+  "configVersion": 2,
+  "generated": "by CI shim for project discovery",
+  "generator": "ci-redirect",
+  "packages": [],
+  "inputPackages": [],
+  "extraOptions": {
+    "redirect_note": "This workspace root is not the Flutter app. Tools should use the app's package_config.",
+    "app_package_config_hint": "personal-notes-organizer-180681-180703/notes_frontend/.dart_tool/package_config.json"
+  }
+}

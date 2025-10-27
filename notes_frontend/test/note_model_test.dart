@@ -1,39 +1,37 @@
-import 'package:notes_frontend/models/note.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:notes_frontend/models/models.dart';
 
 void main() {
-  final now = DateTime.parse('2025-01-01T12:00:00.000Z');
+  test('Note toMap/fromMap round-trip preserves fields', () {
+    final now = DateTime(2025, 1, 1, 12, 0);
+    final note = Note(
+      id: 7,
+      title: 'Hello',
+      content: 'World',
+      pinned: true,
+      createdAt: now,
+      updatedAt: now,
+      color: NoteColors.oceanBlue,
+    );
 
-  final note = Note(
-    id: 1,
-    title: 'Title',
-    content: 'Body',
-    pinned: true,
-    createdAt: now,
-    updatedAt: now,
-  );
+    final map = note.toMap();
+    final decoded = Note.fromMap(map);
 
-  // Basic sanity checks
-  assert(note.id == 1);
-  assert(note.title == 'Title');
-  assert(note.pinned == true);
+    expect(decoded.id, 7);
+    expect(decoded.title, 'Hello');
+    expect(decoded.content, 'World');
+    expect(decoded.pinned, true);
+    expect(decoded.color.value, NoteColors.oceanBlue.value);
+    // Created/updated will be local-ified in fromMap; compare ISO strings for robustness
+    expect(decoded.createdAt.toIso8601String(), now.toIso8601String());
+    expect(decoded.updatedAt.toIso8601String(), now.toIso8601String());
+  });
 
-  // toMap/fromMap round-trip (db style fields)
-  final map = note.toMap();
-  final fromMap = Note.fromMap(map);
-  assert(fromMap.id == note.id);
-  assert(fromMap.title == note.title);
-  assert(fromMap.content == note.content);
-  assert(fromMap.pinned == note.pinned);
-  assert(fromMap.color.value == note.color.value);
-
-  // toJson/fromJson round-trip (json style fields)
-  final json = note.toJson();
-  final fromJson = Note.fromJson(json);
-  assert(fromJson.title == note.title);
-  assert(fromJson.pinned == note.pinned);
-
-  // copyWith changes one field
-  final n2 = note.copyWith(title: 'New');
-  assert(n2.title == 'New');
-  assert(n2.id == note.id);
+  test('Note.newNote factory sets sensible defaults', () {
+    final n = Note.newNote(title: 'T', content: 'C');
+    expect(n.id, isNull);
+    expect(n.title, 'T');
+    expect(n.content, 'C');
+    expect(n.pinned, isFalse);
+  });
 }

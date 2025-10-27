@@ -1,0 +1,13 @@
+Personal Notes Organizer - Flutter Mobile App
+
+Flutter app location:
+  personal-notes-organizer-180681-180703/notes_frontend
+
+Run commands from app directory:
+  cd personal-notes-organizer-180681-180703/notes_frontend
+  flutter pub get
+  flutter analyze
+  flutter test
+
+CI helper (from repo root):
+  bash personal-notes-organizer-180681-180703/run_ci.sh

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# CI default entrypoint that runs Flutter commands from the correct app directory.
+set -euo pipefail
+
+APP_DIR="personal-notes-organizer-180681-180703/notes_frontend"
+
+if [ ! -f "$APP_DIR/pubspec.yaml" ] || [ ! -f "$APP_DIR/lib/main.dart" ]; then
+  echo "ci_run: Flutter app not found at $APP_DIR"
+  exit 1
+fi
+
+echo "ci_run: cd $APP_DIR"
+cd "$APP_DIR"
+
+echo "ci_run: flutter pub get"
+flutter pub get
+
+echo "ci_run: flutter analyze"
+flutter analyze
+
+echo "ci_run: flutter test"
+flutter test
+
+echo "ci_run: done"

@@ -1,20 +1,18 @@
-# Contributing / CI Notes
+# Contributing
 
-This workspace contains a Flutter app located at:
+This Flutter app lives under:
 - personal-notes-organizer-180681-180703/notes_frontend
 
-Run Flutter commands from that directory:
+Always run Flutter commands from the app directory:
 
-1) Install dependencies
+1) Change directory:
+   cd personal-notes-organizer-180681-180703/notes_frontend
+
+2) Run checks:
    flutter pub get
-
-2) Analyze
    flutter analyze
+   flutter test
 
-3) Test
-   CI=true flutter test --no-pub
-
-Helper scripts from workspace root:
-- bash personal-notes-organizer-180681-180703/ci.sh
-- bash personal-notes-organizer-180681-180703/analyze.sh
-- bash personal-notes-organizer-180681-180703/test.sh
+Helper scripts:
+- From repo root: bash personal-notes-organizer-180681-180703/run_ci.sh
+- From app root: bash run_here.sh
