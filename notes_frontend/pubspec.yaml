@@ -1,5 +1,17 @@
 name: notes_frontend
 description: "A new Flutter project."
+# Project metadata hint for external analyzers/CI to detect project root.
+# Some tooling looks for these keys in pubspec to confirm the Flutter app root.
+repository: ""
+homepage: ""
+issue_tracker: ""
+
+# Expose a library entrypoint for package:notes_frontend imports
+# pointing to lib/notes_frontend.dart (already added).
+flutter:
+  assets:
+    - .env
+    - assets/
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -28,7 +40,12 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  flutter:
+  scripts:
+  bootstrap: flutter --version && flutter pub get
+  analyze: flutter analyze
+  test: CI=true flutter test --coverage
+
+flutter:
     sdk: flutter
   sqflite: ^2.3.2
   path: ^1.9.0
@@ -49,6 +66,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+
+executables:
+  verify_root: tool/verify_root.dart
+  run_ci: tool/run_ci.dart
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

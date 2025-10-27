@@ -1,0 +1,10 @@
+analyzer:
+  exclude:
+    - lib/_ci_stubs/**
+    - lib/examples/**
+    - assets/**/fixtures/**
+    - assets/**/migrations/**
+linter:
+  rules:
+    - avoid_print
+    - prefer_single_quotes

@@ -1,16 +1,16 @@
-# notes_frontend
+# Workspace Overview
 
-A new Flutter project.
+This workspace contains a Flutter application for personal notes.
 
-## Getting Started
+- Flutter app root directory:
+  personal-notes-organizer-180681-180703/notes_frontend
 
-This project is a starting point for a Flutter application.
+Run these commands from the Flutter app directory:
+- flutter pub get
+- flutter analyze
+- flutter test
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Helper scripts from workspace root:
+- bash personal-notes-organizer-180681-180703/ci.sh
+- bash personal-notes-organizer-180681-180703/run_analyze.sh
+- bash personal-notes-organizer-180681-180703/run_flutter_ci.sh

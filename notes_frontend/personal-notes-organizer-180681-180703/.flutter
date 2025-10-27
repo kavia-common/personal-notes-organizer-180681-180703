@@ -1,0 +1,3 @@
+# Marker file for CI/analyzers indicating a Flutter project is present in this workspace.
+# Relative path to the Flutter app directory (containing pubspec.yaml):
+notes_frontend

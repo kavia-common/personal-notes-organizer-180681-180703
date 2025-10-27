@@ -1,0 +1,1 @@
+This file exists so CI scripts that search for 'tool/ci_project_root.marker' can set the working directory to the Flutter project root.

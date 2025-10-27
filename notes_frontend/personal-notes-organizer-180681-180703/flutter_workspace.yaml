@@ -1,0 +1,10 @@
+# Workspace-level manifest to help CI locate the Flutter project
+flutter:
+  project_root: personal-notes-organizer-180681-180703/notes_frontend
+  commands:
+    - flutter --version
+    - flutter pub get
+    - flutter analyze
+    - flutter test --coverage
+notes:
+  - Ensure CI changes working directory to the path above before running flutter commands.

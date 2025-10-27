@@ -1,0 +1,5 @@
+# This file helps some analyzers detect the package metadata in CI without full Flutter setup.
+# It is safe to keep and ignored by pub if not needed.
+name: notes_frontend
+environment:
+  sdk: ">=3.7.0 <4.0.0"

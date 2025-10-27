@@ -1,0 +1,6 @@
+# Minimal package info to help CI analyzers determine project metadata.
+name: notes_frontend
+description: Personal notes app (models and utils scaffolding)
+version: 1.0.0+1
+environment:
+  sdk: ">=3.7.0 <4.0.0"

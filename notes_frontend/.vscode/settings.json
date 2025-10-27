@@ -1,0 +1,12 @@
+{
+  "dart.flutterSdkPath": "/opt/flutter",
+  "dart.lineLength": 100,
+  "dart.analysisExcludedFolders": [
+    "build",
+    ".dart_tool"
+  ],
+  "search.exclude": {
+    "**/build": true,
+    "**/.dart_tool": true
+  }
+}

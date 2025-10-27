@@ -1,0 +1,4 @@
+flutter_project_path: personal-notes-organizer-180681-180703/notes_frontend
+notes: |
+  CI systems can read this file to locate the Flutter project before running flutter commands.
+  Equivalent to flutter_project.json; provided for environments expecting YAML.

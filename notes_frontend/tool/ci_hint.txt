@@ -1,0 +1,4 @@
+This is the Flutter project root. CI systems should `cd personal-notes-organizer-180681-180703/notes_frontend` before running:
+- flutter pub get
+- flutter analyze
+- flutter test
